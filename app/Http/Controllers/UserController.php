@@ -13,7 +13,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::all();
+
+
+        return View::make('user.index')
+            ->with('user', $user);
     }
 
     /**
