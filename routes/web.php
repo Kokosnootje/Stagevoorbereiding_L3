@@ -15,15 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
-Route::resource('users', 'UserController');
-
-Route::get('users', function () {
-    $user = \App\User::all();
-    return view('users.index',compact('user'));
-})->name('users.publicIndex');
-
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UserController');
     Route::resource('houses', 'HouseController');
