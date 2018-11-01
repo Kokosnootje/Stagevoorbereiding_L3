@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Gebruikers</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
+
 <div class="container">
 
     <nav class="navbar navbar-inverse">
@@ -34,3 +31,5 @@
     <div class="pull-left">
         <a class="btn btn-primary" href="{{route('users.index')}}">Terug</a>
     </div>
+
+@endsection

@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Gebruikers</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
+
 <div class="container">
 
     <nav class="navbar navbar-inverse">
@@ -16,9 +13,6 @@
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>Wijzig gebruiker</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{route('users.index')}}">Terug</a>
         </div>
     </div>
 </div>
@@ -34,6 +28,9 @@
                 <input type="text" name="name" id='name' value="{{$user->name}}" class="form-control">
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                <a class="btn btn-primary" href="{{route('users.index')}}">Terug</a>
                 <button type="submit" class="btn btn-primary">Verstuur</button>
             </div>
 </form>
+
+@endsection
