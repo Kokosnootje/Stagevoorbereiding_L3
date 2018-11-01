@@ -15,7 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('user', 'UserController');
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('user', 'UserController');
+    Route::resource('houses', 'HouseController');
+});
 
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
