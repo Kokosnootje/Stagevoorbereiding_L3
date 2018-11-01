@@ -15,4 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('user', 'UserController');
+Route::resource('users', 'UserController');
+
+Route::get('user', function () {
+    $user = \App\User::all();
+    return view('user.index',compact('user'));
+})->name('user.publicIndex');
+
+
+

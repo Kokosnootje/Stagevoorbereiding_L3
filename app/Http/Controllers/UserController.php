@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Hash;
 
 class UserController extends Controller
 {
@@ -14,6 +16,10 @@ class UserController extends Controller
     public function index()
     {
 
+        $user = User::all();
+
+        return view('user.index')
+            ->with('user', $user);
     }
 
     /**
@@ -23,7 +29,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create');
     }
 
     /**
@@ -34,8 +40,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+        $user->name = request('name');
+        $user->password = Hash::make(request('password'));
+        $user->save();
+
+        return redirect('users')
+            ->with('success','User created successfully');
     }
+
 
     /**
      * Display the specified resource.
@@ -43,9 +56,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return view('user.show', compact('user'));
     }
 
     /**
@@ -54,9 +67,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('user.edit', compact('user'));
     }
 
     /**
@@ -66,9 +79,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255|unique:users,name,'.$user->id,
+            'password' => 'string|min:6|nullable',
+        ]);
+
+        $user->update($request->all());
+
+        return redirect(route('users.index'))
+            ->with('success','Gebruiker is succesvol aangepast');
     }
 
     /**
@@ -77,8 +98,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect(route('users.index', compact('user')));
     }
 }
