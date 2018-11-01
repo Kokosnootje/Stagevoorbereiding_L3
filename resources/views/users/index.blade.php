@@ -23,23 +23,23 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($user as $u)
+            @foreach($users as $user)
                 <tr>
-                    <td>{{$u->id}}</td>
-                    <td>{{$u->name}}</td>
+                    <td>{{$user->id}}</td>
+                    <td>{{$user->name}}</td>
                     <td>
-                        <form action="{{route('users.show', $u->id)}}">
+                        <form action="{{route('users.show', $user->id)}}">
                             <input class="btn btn-small btn-info" type="submit" value="Show">
                         </form>
                     </td>
                     <td>
-                        <form action="{{route('users.edit', $u->id)}}">
+                        <form action="{{route('users.edit', $user->id)}}">
                             <input class="btn btn-small btn-info" type="submit" value="Edit">
                         </form>
                     </td>
 
                     <td>
-                        <form action="{{route('users.destroy', $u->id)}}" method="post" onSubmit="return confirmDelete()">
+                        <form action="{{route('users.destroy', $user->id)}}" method="post" onSubmit="return confirmDelete()">
                             @csrf
                             {{ method_field('DELETE') }}
                             <input class="btn btn-small btn-info" type="submit" value="Delete">

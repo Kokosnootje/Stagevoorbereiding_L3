@@ -16,10 +16,10 @@ class UserController extends Controller
     public function index()
     {
 
-        $user = User::all();
+        $users = User::all();
 
-        return view('user.index')
-            ->with('user', $user);
+        return view('users.index')
+            ->with('users', $users);
     }
 
     /**
@@ -29,7 +29,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        return view('users.create');
     }
 
     /**
@@ -38,8 +38,13 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
+        $validatedData = request()->validate([
+            'name' => 'required|string|max:255|unique:users',
+            'password' => 'required|string|min:6',
+        ]);
+
         $user = new User;
         $user->name = request('name');
         $user->password = Hash::make(request('password'));
@@ -56,9 +61,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(User $users)
     {
-        return view('user.show', compact('user'));
+        return view('users.show', compact('users'));
     }
 
     /**
@@ -69,7 +74,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('user.edit', compact('user'));
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -86,7 +91,8 @@ class UserController extends Controller
             'password' => 'string|min:6|nullable',
         ]);
 
-        $user->update($request->all());
+        $user->name = request('name');
+        $user->save();
 
         return redirect(route('users.index'))
             ->with('success','Gebruiker is succesvol aangepast');
@@ -102,7 +108,6 @@ class UserController extends Controller
     {
        $user->delete();
 
-        $request->session()->flash('success', 'De gebruiker is gewist');
-        return redirect(route('users.index', compact('user')));
+        return redirect(route('users.index', compact('users')));
     }
 }

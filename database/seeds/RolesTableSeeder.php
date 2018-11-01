@@ -14,7 +14,7 @@ class RolesTableSeeder extends Seeder
     {
         $data = [
             ['name' => 'admin', 'guard_name' => 'web'],
-            ['name' => 'user', 'guard_name' => 'web'],
+            ['name' => 'users', 'guard_name' => 'web'],
         ];
 
         Role::insert($data);

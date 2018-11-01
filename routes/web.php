@@ -19,13 +19,13 @@ Route::get('/', function () {
 
 Route::resource('users', 'UserController');
 
-Route::get('user', function () {
+Route::get('users', function () {
     $user = \App\User::all();
-    return view('user.index',compact('user'));
-})->name('user.publicIndex');
+    return view('users.index',compact('user'));
+})->name('users.publicIndex');
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::resource('user', 'UserController');
+    Route::resource('users', 'UserController');
     Route::resource('houses', 'HouseController');
 });
 
