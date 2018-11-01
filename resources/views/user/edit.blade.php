@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gebruikers</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+        </div>
+    </nav>
+
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">

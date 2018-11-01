@@ -23,3 +23,6 @@ Route::get('user', function () {
     return view('user.index',compact('user'));
 })->name('user.publicIndex');
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

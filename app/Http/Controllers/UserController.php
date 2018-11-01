@@ -98,9 +98,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Request $request, User $user)
     {
-        $user->delete();
+       $user->delete();
+
+        $request->session()->flash('success', 'De gebruiker is gewist');
         return redirect(route('users.index', compact('user')));
     }
 }

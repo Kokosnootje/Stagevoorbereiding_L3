@@ -1,52 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Gebruikers</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-</head>
-<body>
-<div class="container">
+@extends('layouts.app')
 
-    <nav class="navbar navbar-inverse">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="">Gebruikers</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li><a href="{{route('users.create')}}">Maak gebruiker aan</a>
-        </ul>
-    </nav>
+@section('content')
+    <div class="container">
 
-    <table class="table table-striped table-bordered">
-        <thead>
-        <tr>
-            <td>ID</td>
-            <td>Naam</td>
-            <td>Opties</td>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($user as $u)
+        <nav class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <a class="navbar-brand">Gebruikers</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="{{route('users.create')}}">Maak gebruiker aan</a>
+            </ul>
+        </nav>
+
+        <table class="table table-striped table-bordered">
+            <thead>
             <tr>
-                <td>{{$u->id}}</td>
-                <td>{{$u->name}}</td>
-                <td>
-                    <a class="btn btn-small btn-success" href="{{route('users.show', $u->id)}}">Laat gebruiker zien</a>
-
-                    <a class="btn btn-small btn-info" href="{{route('users.edit', $u->id)}}">Wijzig gebruiker</a>
-
-                    </td>
-                <td>
-                    <form action="{{route('users.destroy', $u->id)}}" method="post">
-                        @csrf
-                        {{ method_field('DELETE') }}
-                        <input type="submit" value="Delete">
-                    </form>
-                </td>
+                <td>ID</td>
+                <td>Naam</td>
+                <td>Laat gebruiker zien</td>
+                <td>Wijzig gebruiker</td>
+                <td>Verwijder gebruiker</td>
             </tr>
-        @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            @foreach($user as $u)
+                <tr>
+                    <td>{{$u->id}}</td>
+                    <td>{{$u->name}}</td>
+                    <td>
+                        <form action="{{route('users.show', $u->id)}}">
+                            <input class="btn btn-small btn-info" type="submit" value="Show">
+                        </form>
+                    </td>
+                    <td>
+                        <form action="{{route('users.edit', $u->id)}}">
+                            <input class="btn btn-small btn-info" type="submit" value="Edit">
+                        </form>
+                    </td>
 
-</div>
-</body>
-</html>
+                    <td>
+                        <form action="{{route('users.destroy', $u->id)}}" method="post" onSubmit="return confirmDelete()">
+                            @csrf
+                            {{ method_field('DELETE') }}
+                            <input class="btn btn-small btn-info" type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+
+    </div>
+@endsection
