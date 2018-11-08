@@ -5,17 +5,16 @@
 
         <nav class="navbar navbar-inverse">
             <div class="navbar-header">
-                <a class="navbar-brand">Gebruikers</a>
+                <a class="navbar-brand">Alle gebruikers </a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="{{route('users.create')}}">Maak gebruiker aan</a>
+                <li><a class="btn btn-small btn-info" href="{{route('users.create')}}">Maak gebruiker aan</a>
             </ul>
         </nav>
 
         <table class="table table-striped table-bordered">
             <thead>
             <tr>
-                <td>ID</td>
                 <td>Naam</td>
                 <td>Laat gebruiker zien</td>
                 <td>Wijzig gebruiker</td>
@@ -25,7 +24,6 @@
             <tbody>
             @foreach($users as $user)
                 <tr>
-                    <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
                     <td>
                         <form action="{{route('users.show', $user->id)}}">
