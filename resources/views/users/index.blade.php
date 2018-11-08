@@ -26,21 +26,22 @@
                 <tr>
                     <td>{{$user->name}}</td>
                     <td>
-                        <form action="{{route('users.show', $user->id)}}">
-                            <input class="btn btn-small btn-info" type="submit" value="Show">
+                        <form id="user-show{{$user->id}}" action="{{route('users.show', $user->id)}}">
+                            <i class="fas fa-eye fa-lg btn" onclick="document.getElementById('user-show{{$user->id}}').submit();"></i>
                         </form>
                     </td>
                     <td>
-                        <form action="{{route('users.edit', $user->id)}}">
-                            <input class="btn btn-small btn-info" type="submit" value="Edit">
+                        <form id="user-edit{{$user->id}}" action="{{route('users.edit', $user->id)}}">
+                            <i class="fas fa-edit fa-lg btn" onclick="document.getElementById('user-edit{{$user->id}}').submit();"></i>
                         </form>
                     </td>
-
                     <td>
-                        <form action="{{route('users.destroy', $user->id)}}" method="post" onSubmit="return confirmDelete()">
+                        <form id="user-destroy{{$user->id}}" class="delete" action="{{route('users.destroy', $user->id)}}" method="post" onSubmit="return confirmDelete()">
                             @csrf
                             {{ method_field('DELETE') }}
-                            <input class="btn btn-small btn-info" type="submit" value="Delete">
+                            <button class="fabutton" type="submit">
+                                <i class="fas fa-trash-alt fa-lg btn"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>
