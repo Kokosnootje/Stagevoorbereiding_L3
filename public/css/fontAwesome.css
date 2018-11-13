@@ -1,0 +1,22 @@
+.fa-edit:hover,.fa-trash-alt:hover,.fa-eye:hover {
+    color: #8c8c8c;
+}
+
+.fabutton {
+    background: none;
+    padding: 0px;
+    border: none;
+}
+
+.fabutton.active.focus,
+.fabutton.active:focus,
+.fabutton.focus,
+.fabutton.focus:active,
+.fabutton:active:focus,
+.fabutton:focus {
+    outline: 0 !important;
+    outline-offset: 0  !important;
+    background-image: none  !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none  !important;
+}
