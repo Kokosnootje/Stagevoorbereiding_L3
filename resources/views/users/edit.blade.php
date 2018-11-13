@@ -26,7 +26,9 @@
             <div class="form-group">
                 <strong>Naam:</strong>
                 <input type="text" name="name" id='name' value="{{$user->name}}" class="form-control">
+                <input type="password" name="password" id='password'  class="form-control">
             </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <a class="btn btn-primary" href="{{route('users.index')}}">Terug</a>
                 <button type="submit" class="btn btn-primary">Verstuur</button>
