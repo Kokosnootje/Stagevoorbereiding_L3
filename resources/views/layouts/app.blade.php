@@ -34,7 +34,7 @@
             <div class="navbar-collapse collapse" id="navbarToggleExternalContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item navbar-brand active">
-                        <a class="nav-link" href="#">Huizen overzicht<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{route('houses.index')}}">Huizen overzicht<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item navbar-brand">
                         <a class="nav-link" href="{{route('users.index')}}">Gebruikers</a>
