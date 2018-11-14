@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UserController');
     Route::resource('houses', 'HouseController');
+    Route::resource('logboek', 'Logboekcontroller');
 });
 
 

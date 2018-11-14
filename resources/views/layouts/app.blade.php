@@ -40,7 +40,7 @@
                         <a class="nav-link" href="{{route('users.index')}}">Gebruikers</a>
                     </li>
                     <li class="nav-item navbar-brand">
-                        <a class="nav-link" href="#">Logboek</a>
+                        <a class="nav-link" href="{{route ('logboek.index')}}">Logboek</a>
                     @guest
                         <li class="nav-item navbar-brand">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
