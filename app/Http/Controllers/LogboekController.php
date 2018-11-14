@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\vc;
-use Illuminate\Http\Request;
 
 class LogboekController extends Controller
 {
