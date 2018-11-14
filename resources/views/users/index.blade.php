@@ -31,12 +31,10 @@
                         <form class="btn btn-group mr-3 btn-success" id="user-edit{{$user->id}}" action="{{route('users.edit', $user->id)}}">
                             <i class="fas fa-edit fa-lg btn" onclick="document.getElementById('user-edit{{$user->id}}').submit();"></i>
                         </form>
-                        <form class="btn btn-group mr-4" id="user-destroy{{$user->id}}" class="delete" action="{{route('users.destroy', $user->id)}}" method="post" onSubmit="return confirmDelete()">
+                        <form class="btn btn-group mr-4 btn-danger" id="user-destroy{{$user->id}}" class="delete" action="{{route('users.destroy', $user->id)}}" method="post" onSubmit="return confirmDelete()">
                             @csrf
                             {{ method_field('DELETE') }}
-                            <button class="fontawesome" type="submit">
-                                <i class="fas fa-trash-alt fa-lg"></i>
-                            </button>
+                                <i class="fas fa-trash-alt fa-lg btn" onclick="if (confirm('Weet je het zeker')) { document.getElementById('user-destroy{{$user->id}}').submit();} "></i>
                         </form>
                         </div>
                     </td>

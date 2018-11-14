@@ -3,9 +3,7 @@
 }
 
 .fabutton {
-    background: none;
-    padding: 0px;
-    border: none;
+    background-color: red;
 }
 
 .fabutton.active.focus,
