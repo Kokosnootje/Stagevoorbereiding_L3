@@ -33,8 +33,8 @@
             </button>
             <div class="navbar-collapse collapse" id="navbarToggleExternalContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item navbar-brand active">
-                        <a class="nav-link" href="{{route('houses.index')}}">Huizen overzicht<span class="sr-only">(current)</span></a>
+                    <li class="nav-item navbar-brand">
+                        <a class="nav-link" href="{{route('houses.index')}}">Huizen overzicht</a>
                     </li>
                     @can('user-index')
                     <li class="nav-item navbar-brand">
@@ -45,7 +45,7 @@
                         <a class="nav-link" href="{{route ('logboek.index')}}">Logboek</a>
                     @guest
                         <li class="nav-item navbar-brand">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}">Inloggen</a>
                         </li>
                     @else
                         <li class="nav-item dropdown navbar-brand">
@@ -56,9 +56,7 @@
                             <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+                                   document.getElementById('logout-form').submit();">Log uit</a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf

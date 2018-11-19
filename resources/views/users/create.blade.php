@@ -26,7 +26,7 @@
     <label for="password">Wachtwoord:</label>
     <input name="password" id="password" type="password"><br>
 
-    <br><input class="btn btn-primary" type="submit" value="Send">
-        <a class="btn btn-primary" href="{{route('users.index')}}">Terug</a>
+    <br><a class="btn btn-primary" href="{{route('users.index')}}">Terug</a>
+        <input class="btn btn-primary" type="submit" value="Verstuur">
 </form>
 @endsection
