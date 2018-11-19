@@ -19,6 +19,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href={{ asset('css/fontAwesome.css')}}
+
 </head>
 <body>
     <div class="pos-f-t">
@@ -29,7 +34,7 @@
             <div class="navbar-collapse collapse" id="navbarToggleExternalContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item navbar-brand active">
-                        <a class="nav-link" href="#">Huizen overzicht<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{route('houses.index')}}">Huizen overzicht<span class="sr-only">(current)</span></a>
                     </li>
                     @can('user-index')
                     <li class="nav-item navbar-brand">
@@ -37,7 +42,7 @@
                     </li>
                     @endcan
                     <li class="nav-item navbar-brand">
-                        <a class="nav-link" href="#">Logboek</a>
+                        <a class="nav-link" href="{{route ('logboek.index')}}">Logboek</a>
                     @guest
                         <li class="nav-item navbar-brand">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

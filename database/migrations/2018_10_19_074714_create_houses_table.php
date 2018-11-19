@@ -16,8 +16,8 @@ class CreateHousesTable extends Migration
         Schema::create('houses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->unsignedInteger('professor_id');
-            $table->foreign('professor_id')->references('id')->on('users');
+            $table->unsignedInteger('professor_id')->nullable();;
+            $table->foreign('professor_id')->references('id')->on('users')->onDelete('set null');
             $table->timestamps();
         });
     }

@@ -92,6 +92,9 @@ class UserController extends Controller
         ]);
 
         $user->name = request('name');
+        if(!empty(request('password'))){
+            $user->password = Hash::make(request('password'));
+        }
         $user->save();
 
         return redirect(route('users.index'))
