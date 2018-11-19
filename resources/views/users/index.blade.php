@@ -16,9 +16,7 @@
             <thead>
             <tr>
                 <td>Naam</td>
-                <td>Laat gebruiker zien</td>
-                <td>Wijzig gebruiker</td>
-                <td>Verwijder gebruiker</td>
+                <td>Acties</td>
             </tr>
             </thead>
             <tbody>
@@ -26,23 +24,19 @@
                 <tr>
                     <td>{{$user->name}}</td>
                     <td>
-                        <form id="user-show{{$user->id}}" action="{{route('users.show', $user->id)}}">
+                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                        <form class="btn btn-group mr-2 btn-primary" id="user-show{{$user->id}}" action="{{route('users.show', $user->id)}}">
                             <i class="fas fa-eye fa-lg btn" onclick="document.getElementById('user-show{{$user->id}}').submit();"></i>
                         </form>
-                    </td>
-                    <td>
-                        <form id="user-edit{{$user->id}}" action="{{route('users.edit', $user->id)}}">
+                        <form class="btn btn-group mr-3 btn-success" id="user-edit{{$user->id}}" action="{{route('users.edit', $user->id)}}">
                             <i class="fas fa-edit fa-lg btn" onclick="document.getElementById('user-edit{{$user->id}}').submit();"></i>
                         </form>
-                    </td>
-                    <td>
-                        <form id="user-destroy{{$user->id}}" class="delete" action="{{route('users.destroy', $user->id)}}" method="post" onSubmit="return confirmDelete()">
+                        <form class="btn btn-group mr-4 btn-danger" id="user-destroy{{$user->id}}" class="delete" action="{{route('users.destroy', $user->id)}}" method="post" onSubmit="return confirmDelete()">
                             @csrf
                             {{ method_field('DELETE') }}
-                            <button class="fabutton" type="submit">
-                                <i class="fas fa-trash-alt fa-lg btn"></i>
-                            </button>
+                                <i class="fas fa-trash-alt fa-lg btn" onclick="if (confirm('Weet je het zeker')) { document.getElementById('user-destroy{{$user->id}}').submit();}"></i>
                         </form>
+                        </div>
                     </td>
                 </tr>
             @endforeach

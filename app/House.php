@@ -11,6 +11,6 @@ class House extends Model
     ];
 
     public function professor(){
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 }

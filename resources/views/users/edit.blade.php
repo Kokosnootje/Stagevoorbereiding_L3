@@ -24,15 +24,33 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Naam:</strong>
-                <input type="text" name="name" id='name' value="{{$user->name}}" class="form-control">
-                <input type="password" name="password" id='password'  class="form-control">
+                <label for="name">Naam:</label>
+                <input type="text" name="name" id='name' value="{{$user->name}}" class="form-control"><br>
+                <label for="password">Wachtwoord:</label>
+                <input type="password" name="password" id='password'  class="form-control"><br>
+                <label for="house">Gekoppeld Huis:</label>
+                <div class="form-check">
+                    @foreach($houses as $house)
+                        @if($house->professor_id == $user->id)
+                            <label class="form-check-label">
+                                <input class="form-check-input" name="houses[]" id="houses{{$house->id}}" type="checkbox" value="{{$house->id}}" checked>{{$house->name}}
+                            </label><br>
+                        @else
+                            <label class="form-check-label">
+                                <input class="form-check-input" name="houses[]" id="houses{{$house->id}}" type="checkbox" value="{{$house->id}}">{{$house->name}}
+                            </label><br>
+                        @endif
+                    @endforeach
+                </div><br>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <a class="btn btn-primary" href="{{route('users.index')}}">Terug</a>
                 <button type="submit" class="btn btn-primary">Verstuur</button>
             </div>
+        </div>
+    </div>
 </form>
+</div>
 
 @endsection
