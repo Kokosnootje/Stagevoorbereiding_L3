@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UserController');
     Route::resource('houses', 'HouseController');
-    Route::resource('logboek', 'Logboekcontroller');
+    Route::resource('logboek', 'LogboekController');
 });
 
 
@@ -28,3 +28,5 @@ $this->post('login', 'Auth\LoginController@login');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/home', 'HouseController@index')->name('home');
+
+
