@@ -29,7 +29,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function house(){
-        return $this->belongsTo(House::class);
+    public function houses(){
+        return $this->hasMany(House::class);
     }
 }

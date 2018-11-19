@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\House;
 use Illuminate\Http\Request;
 use App\User;
 use Hash;
@@ -35,7 +36,6 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store()
@@ -58,7 +58,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
@@ -69,19 +69,20 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
     {
-        return view('users.edit', compact('user'));
+        $houses = House::all();
+        return view('users.edit', compact('user','houses'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
@@ -89,6 +90,7 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255|unique:users,name,'.$user->id,
             'password' => 'string|min:6|nullable',
+            'houses' => 'nullable',
         ]);
 
         $user->name = request('name');
@@ -96,6 +98,16 @@ class UserController extends Controller
             $user->password = Hash::make(request('password'));
         }
         $user->save();
+        $houses = House::all();
+        foreach ($houses as $house){
+            if(in_array($house->id, request('houses'))){
+                $house->professor_id = $user->id;
+                $house->save();
+            }elseif($house->professor_id == $user->id){
+                $house->professor_id = null;
+                $house->save();
+            }
+        }
 
         return redirect(route('users.index'))
             ->with('success','Gebruiker is succesvol aangepast');
@@ -104,8 +116,10 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param Request $request
+     * @param User $user
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Request $request, User $user)
     {
