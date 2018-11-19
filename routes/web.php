@@ -28,5 +28,3 @@ $this->post('login', 'Auth\LoginController@login');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/home', 'HouseController@index')->name('home');
-
-
