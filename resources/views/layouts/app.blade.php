@@ -31,9 +31,11 @@
                     <li class="nav-item navbar-brand active">
                         <a class="nav-link" href="#">Huizen overzicht<span class="sr-only">(current)</span></a>
                     </li>
+                    @can('user-index')
                     <li class="nav-item navbar-brand">
                         <a class="nav-link" href="{{route('users.index')}}">Gebruikers</a>
                     </li>
+                    @endcan
                     <li class="nav-item navbar-brand">
                         <a class="nav-link" href="#">Logboek</a>
                     @guest

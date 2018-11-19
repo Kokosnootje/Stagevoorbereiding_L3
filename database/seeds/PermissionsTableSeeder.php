@@ -13,7 +13,11 @@ class PermissionsTableSeeder extends Seeder
     public function run()
     {
         $data = [
-
+            ['name' => 'user-create', 'guard_name' => 'web'],
+            ['name' => 'user-edit', 'guard_name' => 'web'],
+            ['name' => 'user-delete', 'guard_name' => 'web'],
+            ['name' => 'user-show', 'guard_name' => 'web'],
+            ['name' => 'user-index', 'guard_name' => 'web']
         ];
 
         Permission::insert($data);
