@@ -14,11 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::group(['middleware' => ['auth']], function () {
-    Route::resource('users', 'UserController');
     Route::resource('houses', 'HouseController');
-    Route::resource('logboek', 'LogboekController');
+
+    Route::group(['middleware' => ['role:admin']], function() {
+        Route::resource('logboek', 'LogboekController');
+        Route::resource('users', 'UserController');
+    });
 });
 
 

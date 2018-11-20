@@ -17,7 +17,8 @@ class PermissionsTableSeeder extends Seeder
             ['name' => 'user-edit', 'guard_name' => 'web'],
             ['name' => 'user-delete', 'guard_name' => 'web'],
             ['name' => 'user-show', 'guard_name' => 'web'],
-            ['name' => 'user-index', 'guard_name' => 'web']
+            ['name' => 'user-index', 'guard_name' => 'web'],
+            ['name' => 'log', 'guard_name' => 'web']
         ];
 
         Permission::insert($data);

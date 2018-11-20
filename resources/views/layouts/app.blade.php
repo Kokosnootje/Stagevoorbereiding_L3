@@ -41,8 +41,11 @@
                         <a class="nav-link" href="{{route('users.index')}}">Gebruikers</a>
                     </li>
                     @endcan
+                    @can('log')
                     <li class="nav-item navbar-brand">
                         <a class="nav-link" href="{{route ('logboek.index')}}">Logboek</a>
+                    </li>
+                    @endcan
                     @guest
                         <li class="nav-item navbar-brand">
                             <a class="nav-link" href="{{ route('login') }}">Inloggen</a>
