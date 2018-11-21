@@ -24,6 +24,9 @@
             <div class="form-group">
                 <strong>Naam:</strong>
                 {{$user->name}}
+                <br>
+                <strong>House:</strong>
+                {{$houses->id}}
             </div>
         </div>
     </div>
