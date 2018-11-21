@@ -27,33 +27,37 @@
 </head>
 <body>
     <div class="pos-f-t">
-        <nav class="navbar id= navbar-dark col-xl-12 navbar-expand-lg bg-primary">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar id= navbar-dark navbar-expand-lg bg-primary">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="navbar-collapse collapse" id="navbarToggleExternalContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item navbar-brand">
+                <ul class="navbar-nav">
+                    <li class="navbar-brand">
                         <a class="nav-link" href="{{route('houses.index')}}">Huizen overzicht</a>
                     </li>
+
                     @can('user-index')
-                    <li class="nav-item navbar-brand">
+                    <li class="navbar-brand">
                         <a class="nav-link" href="{{route('users.index')}}">Gebruikers</a>
                     </li>
                     @endcan
+
                     @can('log')
-                    <li class="nav-item navbar-brand">
+                    <li class="navbar-brand">
                         <a class="nav-link" href="{{route ('logboek.index')}}">Logboek</a>
                     </li>
                     @endcan
+
                     @guest
-                        <li class="nav-item navbar-brand">
+                        <li class="navbar-brand">
                             <a class="nav-link" href="{{ route('login') }}">Inloggen</a>
                         </li>
                     @else
-                        <li class="nav-item dropdown navbar-brand">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                        <li class="dropdown navbar-brand">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                {{ Auth::user()->name }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
@@ -71,7 +75,7 @@
             </div>
         </nav>
     </div>
-    <main class="py-4">
+    <main>
         @yield('content')
     </main>
 </body>
