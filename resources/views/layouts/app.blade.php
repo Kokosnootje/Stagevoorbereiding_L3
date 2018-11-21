@@ -46,7 +46,7 @@
 
                     @can('log')
                     <li class="navbar-brand">
-                        <a class="nav-link" href="{{route ('logboek.index')}}">Logboek</a>
+                        <a class="nav-link" href="{{route('logbook.index')}}">Logbook</a>
                     </li>
                     @endcan
 
