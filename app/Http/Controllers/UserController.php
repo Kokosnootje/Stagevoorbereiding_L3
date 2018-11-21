@@ -100,12 +100,12 @@ class UserController extends Controller
         $user->save();
         $houses = House::all();
         foreach ($houses as $house){
-            if(in_array($house->id, request('houses'))){
-                $house->professor_id = $user->id;
-                $house->save();
+            if(is_array(request('houses')) && in_array($house->id, request('houses'))){
+                    $house->professor_id = $user->id;
+                    $house->save();
             }elseif($house->professor_id == $user->id){
-                $house->professor_id = null;
-                $house->save();
+                    $house->professor_id = null;
+                    $house->save();
             }
         }
 
