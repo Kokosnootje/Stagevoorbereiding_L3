@@ -24,6 +24,13 @@
             <div class="form-group">
                 <strong>Naam:</strong>
                 {{$user->name}}
+                <br>
+                <strong>Huizen:</strong>
+                @if (!empty($user->houses))
+                    @foreach($user->houses AS $key=>$house)
+                        @if($key > 0), @endif {{$house->name}}
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
