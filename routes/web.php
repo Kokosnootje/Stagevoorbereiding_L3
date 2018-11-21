@@ -18,7 +18,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('houses', 'HouseController');
 
     Route::group(['middleware' => ['role:admin']], function() {
-        Route::resource('logboek', 'LogboekController');
+        Route::resource('logbook', 'LogbookController');
         Route::resource('users', 'UserController');
     });
 });

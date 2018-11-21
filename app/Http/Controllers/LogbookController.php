@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-class LogboekController extends Controller
+class LogbookController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -12,7 +12,7 @@ class LogboekController extends Controller
      */
     public function index()
     {
-        return view('logboek.index');
+        return view('logbook.index');
     }
 
 }
