@@ -18,6 +18,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('houses', 'HouseController');
     Route::resource('points', 'PointController');
 
+    // Points views
+    Route::get('points/{house}', 'PointController@add')->name('points.add');
+    Route::post('points', 'PointController@store')->name('points.store');
+
     Route::group(['middleware' => ['role:admin']], function() {
         Route::resource('logbook', 'LogbookController');
         Route::resource('users', 'UserController');
