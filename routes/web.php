@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('houses', 'HouseController');
+    Route::resource('points', 'PointController');
 
     Route::group(['middleware' => ['role:admin']], function() {
         Route::resource('logbook', 'LogbookController');
@@ -28,4 +29,3 @@ Route::group(['middleware' => ['auth']], function () {
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('login', 'Auth\LoginController@login');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');
-
