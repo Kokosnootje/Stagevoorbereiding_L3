@@ -17,6 +17,10 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('houses', 'HouseController');
 
+    // Points views
+    Route::get('points/{house}', 'PointController@add')->name('points.add');
+    Route::post('points', 'PointController@store')->name('points.store');
+
     Route::group(['middleware' => ['role:admin']], function() {
         Route::resource('logboek', 'LogboekController');
         Route::resource('users', 'UserController');
