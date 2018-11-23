@@ -34,7 +34,7 @@
                         <form class="btn btn-group mr-4 btn-danger" id="user-destroy{{$user->id}}" class="delete" action="{{route('users.destroy', $user->id)}}" method="post">
                             @csrf
                             {{ method_field('DELETE') }}
-                                <i class="fas fa-trash-alt fa-lg btn" onclick="if (confirm('Weet je het zeker?')) { document.getElementById('user-destroy{{$user->id}}').submit();}"></i>
+                                <i class="fas fa-trash-alt fa-lg btn" onclick="if (confirm('Weet je zeker dat je deze gebruiker wilt verwijderen?')) { document.getElementById('user-destroy{{$user->id}}').submit();}"></i>
                         </form>
                         </div>
                     </td>
