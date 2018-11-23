@@ -31,7 +31,6 @@
                         @if($key > 0), @endif {{$house->name}}
                     @endforeach
                 @endif
-
             </div>
         </div>
     </div>
