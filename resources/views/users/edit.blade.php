@@ -10,7 +10,7 @@
     </nav>
 
 <div class="row">
-    <div class="col-lg-12 margin-tb">
+    <div class="col-lg-12">
         <div class="pull-left">
             <h2>Wijzig gebruiker</h2>
         </div>
@@ -22,7 +22,7 @@
     @csrf
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-md-12">
             <div class="form-group">
                 <label for="name">Naam:</label>
                 <input type="text" name="name" id='name' value="{{$user->name}}" class="form-control"><br>
@@ -44,7 +44,7 @@
                 </div><br>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+            <div class="col-md-12 text-center">
                 <a class="btn btn-primary" href="{{route('users.index')}}">Terug</a>
                 <button type="submit" class="btn btn-primary">Verstuur</button>
             </div>
