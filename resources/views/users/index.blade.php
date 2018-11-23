@@ -24,17 +24,17 @@
                 <tr>
                     <td>{{$user->name}}</td>
                     <td>
-                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-toolbar" role="toolbar">
                         <form class="btn btn-group mr-2 btn-primary" id="user-show{{$user->id}}" action="{{route('users.show', $user->id)}}">
                             <i class="fas fa-eye fa-lg btn" onclick="document.getElementById('user-show{{$user->id}}').submit();"></i>
                         </form>
                         <form class="btn btn-group mr-3 btn-success" id="user-edit{{$user->id}}" action="{{route('users.edit', $user->id)}}">
                             <i class="fas fa-edit fa-lg btn" onclick="document.getElementById('user-edit{{$user->id}}').submit();"></i>
                         </form>
-                        <form class="btn btn-group mr-4 btn-danger" id="user-destroy{{$user->id}}" class="delete" action="{{route('users.destroy', $user->id)}}" method="post" onSubmit="return confirmDelete()">
+                        <form class="btn btn-group mr-4 btn-danger" id="user-destroy{{$user->id}}" class="delete" action="{{route('users.destroy', $user->id)}}" method="post">
                             @csrf
                             {{ method_field('DELETE') }}
-                                <i class="fas fa-trash-alt fa-lg btn" onclick="if (confirm('Weet je het zeker')) { document.getElementById('user-destroy{{$user->id}}').submit();}"></i>
+                                <i class="fas fa-trash-alt fa-lg btn" onclick="if (confirm('Weet je het zeker?')) { document.getElementById('user-destroy{{$user->id}}').submit();}"></i>
                         </form>
                         </div>
                     </td>
