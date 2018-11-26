@@ -18,7 +18,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{route('houses.index') }}">Home</a>
+                        <a href="{{route('houses.index') }}">Overzicht</a>
                     @else
                         <a href="{{ route('login') }}">Inloggen</a>
                     @endauth
