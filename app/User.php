@@ -30,6 +30,6 @@ class User extends Authenticatable
     ];
 
     public function houses(){
-        return $this->hasMany(House::class);
+        return $this->hasMany('App\House', 'professor_id', 'id');
     }
 }

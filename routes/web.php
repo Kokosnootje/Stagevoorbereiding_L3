@@ -22,7 +22,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('points', 'PointController@store')->name('points.store');
 
     Route::group(['middleware' => ['role:admin']], function() {
-        Route::resource('logboek', 'LogboekController');
+        Route::resource('logbook', 'LogbookController');
         Route::resource('users', 'UserController');
     });
 });
