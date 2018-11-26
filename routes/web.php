@@ -17,6 +17,10 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('houses', 'HouseController');
 
+    // Points views
+    Route::get('points/{house}', 'PointController@add')->name('points.add');
+    Route::post('points/{house}', 'PointController@store')->name('points.store');
+
     Route::group(['middleware' => ['role:admin']], function() {
         Route::resource('logbook', 'LogbookController');
         Route::resource('users', 'UserController');
@@ -28,4 +32,4 @@ Route::group(['middleware' => ['auth']], function () {
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('login', 'Auth\LoginController@login');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');
-
+$this->get('logout', 'Auth\LoginController@logout')->name('logout');
