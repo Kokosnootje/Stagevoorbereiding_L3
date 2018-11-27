@@ -3,6 +3,8 @@
 @section('content')
 	@foreach($houses as $house)
 		{{$house->name}}
-		{{dd($house->current_points->score)}}
+        @if(!empty($house->current_points()->score))
+		    {{$house->current_points()->score}}
+        @endif
 	@endforeach
 @endsection
