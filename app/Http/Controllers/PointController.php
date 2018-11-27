@@ -16,11 +16,12 @@ class PointController extends Controller
         return view('points.add', compact('house'));
     }
 
-    public function store(House $house){
-        $validatedData = request()->validate([
-            'value' => '',
-            'customValue' => '',
+    public function store(Request $request, House $house){
+        $validatedData = $request->validate([
+            'value' => 'nullable|integer',
+            'customValue' => 'nullable|integer|min:1',
         ]);
+
 
         $value = (!empty(request('value'))) ? request('value') : request('customValue');
         $points_change = new PointsChange();
@@ -46,5 +47,6 @@ class PointController extends Controller
         $points_change->points_today_id = $d->id;
         $points_change->save();
 		return redirect('houses');
+
     }
 }
