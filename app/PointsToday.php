@@ -10,4 +10,8 @@ class PointsToday extends Model
         'house_id', 'score',
     ];
 	protected $table = 'points_today';
+
+	public function house(){
+        return $this->belongsTo(House::class);
+    }
 }
