@@ -17,6 +17,8 @@ class CreatePointsChangesTable extends Migration
             $table->increments('id');
             $table->integer('change');
             $table->boolean('is_positive');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedInteger('points_today_id');
             $table->foreign('points_today_id')->references('id')->on('points_today');
             $table->timestamps();
