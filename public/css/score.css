@@ -1,0 +1,15 @@
+html, body { height:100%; margin:0; padding:0; background-image: url('../photo/background.png'); min-width: 100%; background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat;}
+div { position:absolute; width:50%; height:50%; font-size: 40px; color: white;}
+span {
+  display: inline-block;
+  vertical-align: middle;
+}
+#score { min-width: 100%; min-height: 100%;}
+#div1 { top:0;   left:0;   background:transparent; text-align: center;}
+#div2 { top:0;   left:50%; background:transparent; text-align: center;}
+#div3 { top:50%; left:0;   background:transparent; text-align: center;}
+#div4 { top:50%; left:50%; background:transparent; text-align: center;}
+#img1 { top:0;   left:0;   background:transparent; display: block; margin-left: auto; margin-right: auto; width: 30%;}
+#img2 { top:0;   left:50%; background:transparent; display: block; margin-right: auto; margin-left: auto; width: 30%;}
+#img3 { top:50%; left:0;   background:transparent; display: block; margin-left: auto; margin-right: auto; width: 30%;}
+#img4 { top:50%; left:50%; background:transparent; display: block; margin-right: auto; margin-left: auto; width: 30%;}
