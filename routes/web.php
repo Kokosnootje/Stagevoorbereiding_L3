@@ -21,6 +21,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('points/{house}', 'PointController@add')->name('points.add');
     Route::post('points/{house}', 'PointController@store')->name('points.store');
     Route::get('score', 'PointController@index')->name('points.index');
+    Route::get('getscore', 'PointController@getScore')->name('points.get.score');
 
     Route::group(['middleware' => ['role:admin']], function() {
         Route::resource('logbook', 'LogbookController');
