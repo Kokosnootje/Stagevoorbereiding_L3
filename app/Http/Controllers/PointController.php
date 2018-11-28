@@ -48,7 +48,11 @@ class PointController extends Controller
 		return redirect('houses');
     }
     public function index(){
+        return view('points.index');
+    }
+
+    public function getScore(){
         $houses = House::all();
-        return view('points.index', compact('houses'));
+        return view('points.score', compact('houses'));
     }
 }
