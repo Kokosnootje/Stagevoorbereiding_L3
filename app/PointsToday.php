@@ -11,7 +11,8 @@ class PointsToday extends Model
     ];
 	protected $table = 'points_today';
 
-	public function house() {
-	    return $this->belongsTo('App\House');
+	public function house(){
+        return $this->belongsTo(House::class);
+
     }
 }

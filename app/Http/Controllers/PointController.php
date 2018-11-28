@@ -47,4 +47,8 @@ class PointController extends Controller
         $points_change->save();
 		return redirect('houses');
     }
+    public function index(){
+        $houses = House::all();
+        return view('points.index', compact('houses'));
+    }
 }

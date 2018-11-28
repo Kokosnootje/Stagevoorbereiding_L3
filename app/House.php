@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class House extends Model
 {
@@ -12,5 +13,13 @@ class House extends Model
 
     public function professor(){
         return $this->belongsTo(User::class);
+    }
+
+    public function points_today(){
+        return $this->hasMany(PointsToday::class);
+    }
+
+    public function scopeCurrent_points(){
+        return $this->points_today()->whereDate('created_at', '=', Carbon::today()->toDateString())->first();
     }
 }
