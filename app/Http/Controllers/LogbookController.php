@@ -14,7 +14,7 @@ class LogbookController extends Controller
      */
     public function index()
     {
-        $points = PointsChange::All();
+        $points = PointsChange::All()->sortByDesc('id');
 
         return view('logbook.index', compact('points') );
     }
