@@ -19,7 +19,7 @@ class PointController extends Controller
     public function store(Request $request, House $house){
         $validatedData = $request->validate([
             'value' => 'nullable|integer',
-            'customValue' => 'nullable|integer|min:1',
+            'customValue' => 'nullable|integer',
         ]);
 
         $value = (!empty(request('value'))) ? request('value') : request('customValue');
