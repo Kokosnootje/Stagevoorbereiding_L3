@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-	@foreach($houses as $house)
-		{{$house->name}}
-        @if(!empty($house->current_points()->score))
-		    {{$house->current_points()->score}}
-        @endif
-	@endforeach
+    <div id="score">
+    </div>
+    <script type="application/javascript" src="{{asset('js/getScore.js')}}"></script>
+    <script type="application/javascript">
+        $(function() {
+            getScore();
+        })
+    </script>
 @endsection
