@@ -4,6 +4,7 @@ span {
   display: inline-block;
   vertical-align: middle;
 }
+#score { min-width: 100%; min-height: 100%;}
 #div1 { top:0;   left:0;   background:transparent; text-align: center;}
 #div2 { top:0;   left:50%; background:transparent; text-align: center;}
 #div3 { top:50%; left:0;   background:transparent; text-align: center;}
