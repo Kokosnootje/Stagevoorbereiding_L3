@@ -16,10 +16,13 @@
             <img src="">
         </div>
         <div>
-            @if (count($errors) > 0)
-                <div class="error">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <h3>Errors: </h3>
                     <ul>
-                        <li>Er moet een nummer worden ingevoerd</li>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
                     </ul>
                 </div>
             @endif
