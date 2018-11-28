@@ -11,6 +11,10 @@ class PointsChange extends Model
     ];
 
 	public function points_today() {
-	    return $this->belongsTo('App\PointsToday');
+	    return $this->belongsTo(PointsToday::class);
+    }
+
+    public function user() {
+	    return $this->belongsTo(User::class);
     }
 }

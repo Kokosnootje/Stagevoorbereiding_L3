@@ -9,6 +9,7 @@ use DateTime;
 use DateTimeZone;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PointController extends Controller
 {
@@ -26,6 +27,7 @@ class PointController extends Controller
         $points_change = new PointsChange();
         $points_change->change = $value;
         $points_change->is_positive = ($value >= 0 ? true : false);
+        $points_change->user_id = Auth::user()->id;
 
         $d = PointsToday::whereDate('created_at', Carbon::today())->where('house_id', '=', $house->id)->first();
         if ($d === null) {
