@@ -16,10 +16,10 @@ class PointController extends Controller
         return view('points.add', compact('house'));
     }
 
-    public function store(House $house){
-        $validatedData = request()->validate([
-            'value' => '',
-            'customValue' => '',
+    public function store(Request $request, House $house){
+        $validatedData = $request->validate([
+            'value' => 'nullable|integer',
+            'customValue' => 'nullable|integer',
         ]);
 
         $value = (!empty(request('value'))) ? request('value') : request('customValue');

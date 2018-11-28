@@ -13,5 +13,6 @@ class PointsToday extends Model
 
 	public function house(){
         return $this->belongsTo(House::class);
+
     }
 }

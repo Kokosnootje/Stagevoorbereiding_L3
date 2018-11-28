@@ -16,6 +16,13 @@
             <img src="">
         </div>
         <div>
+            @if (count($errors) > 0)
+                <div class="error">
+                    <ul>
+                        <li>Er moet een nummer worden ingevoerd</li>
+                    </ul>
+                </div>
+            @endif
             <form action="{{route('points.store', $house->id)}}" method="POST" class="form">
                 @csrf
                     <button type="submit" name="value" value="10">10</button>

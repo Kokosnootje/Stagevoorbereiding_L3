@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 
+use App\PointsChange;
+
 class LogbookController extends Controller
 {
     /**
@@ -12,7 +14,9 @@ class LogbookController extends Controller
      */
     public function index()
     {
-        return view('logbook.index');
+        $points = PointsChange::All();
+
+        return view('logbook.index', compact('points') );
     }
 
 }
