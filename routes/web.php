@@ -20,14 +20,13 @@ Route::group(['middleware' => ['auth']], function () {
     // Points views
     Route::get('points/{house}', 'PointController@add')->name('points.add');
     Route::post('points/{house}', 'PointController@store')->name('points.store');
-    Route::get('score', 'PointController@index')->name('points.index');
 
     Route::group(['middleware' => ['role:admin']], function() {
         Route::resource('logbook', 'LogbookController');
         Route::resource('users', 'UserController');
     });
 });
-
+Route::get('score', 'PointController@index')->name('points.index');
 
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
