@@ -20,6 +20,6 @@ class House extends Model
     }
 
     public function scopeCurrent_points(){
-        return collect($this->points_today()->whereDate('created_at', '=', Carbon::today()->toDateString())->first());
+        return $this->points_today()->whereDate('created_at', '=', Carbon::today()->toDateString())->first();
     }
 }
