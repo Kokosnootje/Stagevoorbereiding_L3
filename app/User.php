@@ -32,4 +32,8 @@ class User extends Authenticatable
     public function houses(){
         return $this->hasMany('App\House', 'professor_id', 'id');
     }
+
+    public function pointChanges(){
+        return $this->hasMany(PointsChange::class);
+    }
 }

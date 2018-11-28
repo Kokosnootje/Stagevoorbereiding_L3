@@ -12,9 +12,7 @@
                 });
             });
         </script>
-        <div>
-            <img src="">
-        </div>
+        <br />
         <div>
             @if ($errors->any())
                 <div class="alert alert-danger">
